@@ -29,7 +29,7 @@ const ProudctCard = ({ product}: IProps) => {
                 />
             </div>
             <div className="flex items-center justify-between space-x-5 mt-5">
-                <Button className="bg-indigo-700" width='w-full'>Edit</Button>
+                <Button className="bg-black" width='w-full'>Edit</Button>
                 <Button className="bg-red-700 ">Delete</Button>
             </div>
         </div>
