@@ -1,14 +1,19 @@
-
-
-import './App.css'
+import './index.css'
+import ProudctCard from './components/ProudctCard'
+import { productList } from './data'
 
 function App() {
 
+  //** Render Product */
+  const renderProudcutList = productList.map(product => <ProudctCard key={product.id} product={product} />)
   return (
     <>
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
+      <main className="container mx-auto">
+
+        <div className=' m-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-2'>
+          {renderProudcutList}
+        </div>
+      </main>
     </>
   )
 }
