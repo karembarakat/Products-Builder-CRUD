@@ -1,9 +1,10 @@
 import './index.css'
 import ProudctCard from './components/ProudctCard'
-import { productList } from './data'
+import { formInputsList, productList, } from './data'
 import Modal from './components/ui/Modal';
 import { useState } from 'react';
 import Button from './components/ui/Buttons/index';
+import Input from './components/ui/Input';
 
 function App() {
 
@@ -19,6 +20,14 @@ function App() {
 
   //** Render Product */
   const renderProudcutList = productList.map(product => <ProudctCard key={product.id} product={product} />)
+  const renderFormInputList = formInputsList.map(input =>
+    <div className="flex flex-col">
+      <label className='mb-[1px] text-sm font-medium text-gray-500' htmlFor={input.name}>{input.label}</label>
+
+      <Input id={input.id} name={input.name} type='text' />
+    </div>
+  )
+
   return (
     <>
       <main className="container mx-auto">
@@ -29,14 +38,17 @@ function App() {
           {renderProudcutList}
         </div>
         <Modal close={close} isOpen={isOpen} title='Add New Product'>
-          <div className='flex items-center space-x-3'>
-            <Button className='bg-green-500'>
-              submit
-            </Button>
-            <Button className='bg-red-900'>
-              Cancel
-            </Button>
-          </div>
+          <form className="space-y-3">
+            {renderFormInputList}
+            <div className='flex items-center space-x-3'>
+              <Button className='bg-red-700'>
+                submit
+              </Button>
+              <Button className='bg-gray-500'>
+                Cancel
+              </Button>
+            </div>
+          </form>
         </Modal>
       </main>
     </>
