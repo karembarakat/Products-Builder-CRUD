@@ -9,7 +9,7 @@ interface IProps {
 const ProudctCard = ({ product}: IProps) => {
     const ProductColors = product.colors.map(color => <span className='w-5 h-5 rounded-full' style={{ backgroundColor: color }}/>)
     return (
-        <div className="border mx-auto md:mx-0 rounded-md p-2 flex flex-col max-w-sm md:max-w-lg " >
+        <div className="border mx-auto md:mx-0 rounded-md p-2 flex flex-col max-w-sm md:max-w-lg " key={product.id}>
 
             <Image alt={product.title}
                 className='rounded-md'
